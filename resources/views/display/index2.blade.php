@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="En">
 
 <head>
 
@@ -398,7 +398,7 @@
 
             grid-template-columns:
                 minmax(0, 2.2fr)
-                minmax(300px, 1fr);
+                minmax(330px, 1.15fr);
 
             gap: 1.2vw;
 
@@ -496,7 +496,7 @@
 
             height: 100%;
 
-            padding: 3vw;
+             padding: 2vw 3vw 5vw;
 
             display: flex;
 
@@ -504,7 +504,14 @@
 
             justify-content: center;
 
-        }
+              visibility: hidden;
+}
+
+            .hero-content.hero-ready {
+                visibility: visible;
+            }
+
+        
 
 
         /* =========================
@@ -527,12 +534,12 @@
 
             border:
                 1px solid
-                rgba(90,225,245,0.8);
+                rgba(255,80,80,0.8);
 
             background:
-                rgba(0,174,210,0.16);
+                rgba(220,40,40,0.16);
 
-            color: #9beef7;
+            color: #ff8a8a;
 
             font-size:
                 clamp(12px, 0.9vw, 17px);
@@ -555,11 +562,11 @@
 
             border-radius: 50%;
 
-            background: #68e8f5;
+            background: #ff4d4d;
 
             box-shadow:
                 0 0 12px
-                rgba(104,232,245,0.9);
+                rgba(255,77,77,0.9);
 
         }
 
@@ -642,60 +649,63 @@
 
 
         .hero-label {
-
             display: inline-block;
-
-            margin-bottom: 10px;
-
-            font-size:
-                clamp(12px, 0.85vw, 16px);
-
-            font-weight: 700;
-
-            letter-spacing: 1.5px;
-
+            margin-bottom: 12px;
+            font-size: clamp(16px, 1.25vw, 24px);
+            font-weight: 800;
+            letter-spacing: 1.8px;
             text-transform: uppercase;
-
             color: #71e5f5;
-
         }
+            /* =========================
+            HERO CURRENT RESERVATION
+            ========================= */
 
+            .hero-course {
+                font-size: clamp(32px, 2.8vw, 56px);
+                font-weight: 750;
+                color: #ffffff;
+                line-height: 1.1;
+                max-width: 90%;
+            }
 
-        .hero-title {
+            .hero-meta {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                gap: 4vw;   
+                margin-top: 28px;
+                max-width: 75%;
+            }
 
-            max-width: 88%;
+            .hero-meta-item {
+                display: flex;
+                flex-direction: column;
+            }
 
-            margin: 0;
+            .hero-meta-label {
+                margin-bottom: 6px;
+                font-size: clamp(11px, 0.75vw, 15px);
+                font-weight: 700;
+                letter-spacing: 1.8px;
+                text-transform: uppercase;
+                color: rgba(255,255,255,0.55);
+            }
 
-            font-size:
-                clamp(34px, 4vw, 72px);
+            .hero-room {
+                font-size: clamp(25px, 2vw, 40px);
+                font-weight: 800;
+                color: #ffffff;
+                letter-spacing: 0.5px;
+                line-height: 1.05;
+            }
 
-            line-height: 1.05;
-
-            font-weight: 750;
-
-            letter-spacing: -1px;
-
-            color: #ffffff;
-
-        }
-
-
-        .hero-subtitle {
-
-            max-width: 75%;
-
-            margin-top: 14px;
-
-            font-size:
-                clamp(14px, 1.15vw, 23px);
-
-            line-height: 1.5;
-
-            color:
-                rgba(255,255,255,0.72);
-
-        }
+            .hero-time {
+                font-size: clamp(25px, 2vw, 40px);
+                font-weight: 800;
+                color: #71e5f5;
+                letter-spacing: 0.5px;
+                line-height: 1.05;
+            }
 
 
         /* =========================
@@ -710,7 +720,7 @@
 
             grid-template-columns:
                 repeat(
-                    3,
+                    2,
                     minmax(0, 1fr)
                 );
 
@@ -735,7 +745,7 @@
         .info-label {
 
             font-size:
-                clamp(11px, 0.75vw, 14px);
+                clamp(12px, 0.85vw, 16px);
 
             text-transform: uppercase;
 
@@ -750,7 +760,7 @@
         .info-value {
 
             font-size:
-                clamp(15px, 1.2vw, 23px);
+              clamp(17px, 1.35vw, 26px);
 
             font-weight: 650;
 
@@ -856,271 +866,670 @@
 
 
         /* =========================
-           JADWAL TERSEDIA
-        ========================= */
+   SCHEDULE PANEL
+========================= */
 
-        .upcoming {
+.schedule-panel {
 
-            min-height: 0;
+    min-height: 0;
 
-            background: #ffffff;
+    display: flex;
 
-            border-radius:
-                var(--radius-large);
+    flex-direction: column;
 
-            border:
-                1px solid
-                var(--border);
+    gap: 12px;
 
-            box-shadow:
-                0 8px 18px rgba(0, 41, 79, 0.08),
-                0 2px 5px rgba(0, 41, 79, 0.05);
+    overflow: hidden;
 
-            display: flex;
+}
 
-            flex-direction: column;
 
-            overflow: hidden;
+/* =========================
+   TODAY'S SCHEDULE
+========================= */
 
-        }
+.today-schedule {
 
+    min-height: 0;
 
-        .upcoming-header {
+    flex: 1.8;
 
-            padding:
-                1.7vw
-                1.8vw
-                1.2vw;
+    display: flex;
 
-            flex-shrink: 0;
+    flex-direction: column;
 
-        }
+    background: #ffffff;
 
+    border-radius:
+        var(--radius-large);
 
-        .upcoming-title {
+    border:
+        1px solid
+        var(--border);
 
-            margin: 0;
+    box-shadow:
+        0 8px 18px rgba(0, 41, 79, 0.08),
+        0 2px 5px rgba(0, 41, 79, 0.05);
 
-            font-size:
-                clamp(21px, 1.6vw, 31px);
+    overflow: hidden;
 
-            font-weight: 750;
+}
 
-            color: var(--navy-dark);
 
-        }
 
 
-        .upcoming-subtitle {
+/* =========================
+   TOMORROW / UPCOMING
+========================= */
 
-            margin-top: 5px;
+.tomorrow-schedule {
 
-            font-size:
-                clamp(11px, 0.8vw, 15px);
+    min-height: 0;
 
-            color: var(--muted);
+    flex: 0.7;
 
-        }
+    display: flex;
 
+    flex-direction: column;
 
-        /* =========================
-           SCHEDULE VIEWPORT
-        ========================= */
+    background: #ffffff;
 
-        .schedule-list {
+    border-radius:
+        var(--radius-large);
 
-            flex: 1;
+    border:
+        1px solid
+        var(--border);
 
-            min-height: 0;
+    box-shadow:
+        0 8px 18px rgba(0, 41, 79, 0.08),
+        0 2px 5px rgba(0, 41, 79, 0.05);
 
-            overflow: hidden;
+    overflow: hidden;
 
-            padding:
-                0
-                1.2vw
-                0.8vw;
+}
 
-            position: relative;
 
-        }
+/* =========================
+   SECTION HEADER
+========================= */
 
+.schedule-section-header {
 
-        .schedule-track {
+    padding:
+        1.25vw
+        1.4vw
+        0.8vw;
 
-            position: relative;
+    flex-shrink: 0;
 
-            display: flex;
+}
+.schedule-header-content {
 
-            flex-direction: column;
+    display: flex;
 
-            gap: 10px;
+    align-items: center;
 
-            will-change: transform;
+    justify-content: space-between;
 
-            transition:
-                transform 0.8s ease-in-out;
+    gap: 20px;
 
-        }
+}
 
 
-        /* =========================
-           SCHEDULE CARD
-        ========================= */
+.schedule-search {
 
-        .schedule-item {
+    position: relative;
 
-            flex: 0 0 auto;
+    flex: 0 0 170px;
 
-            display: grid;
+}
 
-            grid-template-columns:
-                90px
-                minmax(0, 1fr);
 
-            gap: 16px;
+.schedule-search-icon {
 
-            padding:
-                10px
-                14px;
+    position: absolute;
 
-            border-radius:
-                var(--radius-medium);
+    left: 12px;
+    top: 50%;
 
-            border:
-                1px solid
-                #dfe8ee;
+    transform:
+        translateY(-50%);
 
-            background:
-                #fbfdfe;
+    font-size: 13px;
 
-            position: relative;
+    opacity: 0.55;
 
-            min-height: 0;
+    pointer-events: none;
 
-            overflow: hidden;
+}
 
-            margin: 0;
 
-            box-shadow:
-                0 3px 8px rgba(0, 41, 79, 0.06),
-                0 1px 2px rgba(0, 41, 79, 0.04);
+.schedule-search input {
 
-            transition:
-                border-color 0.25s ease,
-                background 0.25s ease,
-                box-shadow 0.25s ease;
+    width: 100%;
 
-        }
+    box-sizing: border-box;
 
+    padding:
+        7px
+        12px
+        7px
+        34px;
 
-        .schedule-item.current,
-        .schedule-item.next {
+    border:
+        1px solid
+        rgba(0, 59, 111, 0.14);
 
-            background: #fbfdfe;
+    border-radius: 20px;
 
-            border-color: #dfe8ee;
+    background:
+        rgba(255,255,255,0.65);
 
-            box-shadow:
-                0 3px 8px rgba(0, 41, 79, 0.06),
-                0 1px 2px rgba(0, 41, 79, 0.04);
+    color:
+        var(--text);
 
-        }
+    font-size: 11px;
 
+    outline: none;
 
-        .schedule-time {
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
 
-            font-size:
-                clamp(16px, 1.05vw, 21px);
+}
 
-            font-weight: 750;
 
-            color: var(--navy);
+.schedule-search input::placeholder {
 
-        }
+    color:
+        #9aa9b5;
 
+}
 
-        .schedule-time-end {
 
-            margin-top: 3px;
+.schedule-search input:focus {
 
-            font-size:
-                clamp(11px, 0.7vw, 14px);
+    background:
+        #ffffff;
 
-            color: var(--muted);
+    border-color:
+        rgba(0, 59, 111, 0.3);
 
-        }
+    box-shadow:
+        0 2px 8px
+        rgba(0, 41, 79, 0.06);
 
+}
 
-        .schedule-room {
 
-            margin-top: 7px;
+.upcoming-title {
 
-            font-size:
-                clamp(11px, 0.72vw, 14px);
+    margin: 0;
 
-            color: var(--muted);
+    font-size:
+        clamp(19px, 1.45vw, 29px);
 
-            font-weight: 600;
+    font-weight: 750;
 
-        }
+    color:
+        var(--navy-dark);
 
+}
 
-        .schedule-name {
 
-            padding-right: 5px;
+.upcoming-subtitle {
 
-            font-size:
-                clamp(15px, 1vw, 20px);
+    margin-top: 4px;
 
-            font-weight: 700;
+    font-size:
+        clamp(10px, 0.72vw, 14px);
 
-            color: var(--text);
+    color:
+        var(--muted);
 
-            white-space: nowrap;
+}
 
-            overflow: hidden;
 
-            text-overflow: ellipsis;
+/* =========================
+   TODAY SCHEDULE LIST
+========================= */
+.schedule-list {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding:
+        0
+        1.0vw
+        0.8vw;
+    position: relative;
 
-        }
+    /* scrollbar tetap tersembunyi */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
 
+.schedule-list::-webkit-scrollbar {
+    display: none;
+}
 
-        .schedule-instructor {
 
-            margin-top: 6px;
 
-            padding-right: 5px;
+.schedule-track {
 
-            font-size:
-                clamp(11px, 0.72vw, 14px);
+    position: relative;
 
-            color: var(--muted);
+    display: flex;
 
-            white-space: nowrap;
+    flex-direction: column;
 
-            overflow: hidden;
+    gap: 10px;
 
-            text-overflow: ellipsis;
+    will-change: transform;
 
-        }
+    transition:
+        transform 0.8s ease-in-out;
 
+}
 
-        .schedule-status {
 
-            margin-top: 6px;
+/* =========================
+   TODAY SCHEDULE CARD
+========================= */
 
-            font-size: 10px;
+.schedule-item {
+    flex: 0 0 auto;
+    display: grid;
+    grid-template-columns: 78px minmax(0, 1fr);
+    gap: 14px;
+    padding: 9px 12px;
+    border-radius: var(--radius-medium);
+    border: 1px solid #dfe8ee;
+    background: #fbfdfe;
+    position: relative;
+    min-height: 0;
+    overflow: hidden;
+    margin: 0;
+    box-shadow:
+        0 3px 8px rgba(0, 41, 79, 0.06),
+        0 1px 2px rgba(0, 41, 79, 0.04);
+}
 
-            font-weight: 700;
 
-            color: var(--cyan);
+.schedule-time {
 
-            text-transform: uppercase;
+    margin-top: 4px;
 
-            letter-spacing: 0.5px;
+    font-size: 11px;
 
-        }
+    line-height: 1.2;
 
+    font-weight: 600;
+
+    color: var(--muted);
+
+    white-space: nowrap;
+
+}
+
+
+.schedule-room {
+    margin-top: 7px;
+    font-size: clamp(13px, 1vw, 19px);
+    color: var(--muted);
+    font-weight: 800;
+    letter-spacing: .5px;
+}
+
+.schedule-room-label {
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--muted);
+    letter-spacing: 1px;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.schedule-room {
+    margin-top: 0;
+    font-size: clamp(15px, 1vw, 20px);
+    color: var(--navy);
+    font-weight: 800;
+    letter-spacing: .5px;
+    line-height: 1.1;
+}
+
+.schedule-name {
+
+    padding-right: 5px;
+
+    font-size:
+        clamp(14px, 0.95vw, 19px);
+
+    font-weight: 700;
+
+    color:
+        var(--text);
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+}
+
+
+.schedule-instructor {
+
+    margin-top: 5px;
+
+    padding-right: 5px;
+
+    font-size:
+        clamp(10px, 0.7vw, 14px);
+
+    color:
+        var(--muted);
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+}
+
+
+.schedule-status {
+
+    margin-top: 5px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    color:
+        var(--cyan);
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+
+}
+
+
+.schedule-status.in-progress {
+
+    color: #e53935;
+
+}
+
+
+/* =========================
+   EMPTY TODAY
+========================= */
+
+.schedule-empty {
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    text-align: center;
+
+    color:
+        var(--muted);
+
+    font-size:
+        clamp(12px, 0.8vw, 15px);
+
+}
+
+
+/* =========================
+   TOMORROW HEADER
+========================= */
+
+.tomorrow-header {
+
+    padding-bottom: 0.5vw;
+
+}
+
+
+.tomorrow-title {
+
+    margin: 0;
+
+    font-size:
+        clamp(18px, 1.35vw, 27px);
+
+    font-weight: 750;
+
+    color:
+        var(--navy-dark);
+
+}
+
+
+.tomorrow-subtitle {
+
+    margin-top: 4px;
+
+    font-size:
+        clamp(10px, 0.72vw, 14px);
+
+    color:
+        var(--muted);
+
+}
+
+
+/* =========================
+   TOMORROW LIST
+========================= */
+
+.tomorrow-list {
+
+    position: relative;
+
+    flex: 1;
+
+    min-height: 0;
+
+    overflow: hidden;
+
+    margin:
+        0
+        1vw
+        0.9vw;
+
+}
+
+
+/* =========================
+   TOMORROW CARD
+========================= */
+
+.tomorrow-card {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        78px
+        minmax(0, 1fr);
+
+    gap: 14px;
+
+    padding:
+        12px
+        14px;
+
+    border-radius:
+        var(--radius-medium);
+
+    border:
+        1px solid
+        #dfe8ee;
+
+    background:
+        #fbfdfe;
+
+    box-shadow:
+        0 3px 8px rgba(0, 41, 79, 0.06),
+        0 1px 2px rgba(0, 41, 79, 0.04);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+
+}
+
+
+.tomorrow-card.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+.tomorrow-time-main {
+
+    font-size:
+        clamp(17px, 1.1vw, 22px);
+
+    font-weight: 750;
+
+    color:
+        var(--navy);
+
+}
+
+
+.tomorrow-time-end {
+
+    margin-top: 3px;
+
+    font-size:
+        clamp(10px, 0.68vw, 13px);
+
+    color:
+        var(--muted);
+
+}
+
+
+.tomorrow-content {
+
+    min-width: 0;
+
+}
+
+
+.tomorrow-name {
+
+    font-size:
+        clamp(14px, 0.95vw, 19px);
+
+    font-weight: 700;
+
+    line-height: 1.25;
+
+    color:
+        var(--text);
+
+}
+
+
+.tomorrow-room {
+
+    margin-top: 6px;
+
+    font-size:
+        clamp(10px, 0.7vw, 14px);
+
+    color:
+        var(--muted);
+
+    font-weight: 600;
+
+}
+
+
+.tomorrow-instructor {
+
+    margin-top: 5px;
+
+    font-size:
+        clamp(10px, 0.7vw, 14px);
+
+    color:
+        var(--muted);
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+}
+
+
+.tomorrow-empty {
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    text-align: center;
+
+    color:
+        var(--muted);
+
+    font-size:
+        clamp(11px, 0.75vw, 14px);
+
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+    .schedule-panel {
+
+        display: none;
+
+    }
+
+}
 
         /* =========================
            EMPTY
@@ -1206,6 +1615,230 @@
         }
 
 
+
+       /* =========================
+        DETAIL SCHEDULE MODE
+        ========================= */
+
+        .detail-schedule-mode {
+            display: none;
+            grid-column: 1 / -1;
+            width: 100%;
+            min-height: 100%;
+            padding: 30px 35px;
+            box-sizing: border-box;
+        }
+
+        /* HEADER */
+
+        .detail-schedule-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 22px;
+        }
+
+        .detail-label {
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            opacity: .55;
+        }
+
+        .detail-schedule-header h2 {
+            margin: 4px 0 2px;
+            font-size: 30px;
+            font-weight: 800;
+        }
+
+        .detail-schedule-header p {
+            margin: 0;
+            font-size: 14px;
+            opacity: .55;
+        }
+
+        /* BACK BUTTON */
+
+        .back-highlight-btn {
+            border: none;
+            cursor: pointer;
+            padding: 13px 20px;
+            border-radius: 8px;
+            font-weight: 800;
+            letter-spacing: .5px;
+            white-space: nowrap;
+        }
+
+        /* 20 SCHEDULE */
+
+        .detail-schedule-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px 14px;
+            width: 100%;
+        }
+
+        /* EACH ROW */
+
+        .detail-schedule-item {
+            display: grid;
+            grid-template-columns: 48px 145px minmax(0, 1fr);
+            align-items: center;
+            gap: 12px;
+
+            padding: 12px 16px;
+
+            min-height: 66px;
+            box-sizing: border-box;
+
+            border-radius: 9px;
+
+            background: rgba(255, 255, 255, .035);
+            border: 1px solid rgba(255, 255, 255, .07);
+
+            transition: .2s ease;
+        }
+
+        /* NUMBER */
+
+        .detail-number {
+            font-size: 20px;
+            font-weight: 900;
+            opacity: .3;
+        }
+
+        /* TIME */
+
+        .detail-time {
+            font-size: 17px;
+            font-weight: 800;
+            white-space: nowrap;
+            margin-top: 5px;
+            opacity: .9;
+        }
+
+        .detail-room {
+            line-height: 1.1;
+        }
+
+        .room-label {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: .5px;
+        }
+
+        .room-name {
+            display: block;
+            margin-top: 3px;
+            font-size: clamp(22px, 1.6vw, 32px);
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .detail-room::first-letter {
+        
+        }
+                /* TITLE */
+
+        .detail-title {
+            font-size: 14px;
+            font-weight: 700;
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .detail-status {
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        /* CURRENT CLASS */
+
+        .detail-current {
+            border: 2px solid rgba(0, 200, 255, .8);
+            background: rgba(0, 200, 255, .07);
+        }
+
+        .detail-current .detail-number {
+            opacity: .9;
+        }
+
+        .detail-current .detail-status {
+            color: #00c8ff;
+        }
+
+        /* UPCOMING */
+
+        .detail-schedule-item:not(.detail-current):not(.detail-passed) {
+            background: rgba(255, 255, 255, .045);
+        }
+
+        /* COMPLETED */
+
+        .detail-passed {
+            opacity: .38;
+        }
+
+        /* DETAIL BUTTON */
+
+        .detail-schedule-btn {
+            position: absolute;
+            bottom: 25px;
+            right: 25px;
+            z-index: 100;
+            pointer-events: auto;
+
+            border: none;
+            cursor: pointer;
+
+            padding: 13px 22px;
+            border-radius: 8px;
+
+            font-weight: 800;
+            letter-spacing: .5px;
+        }
+
+        /* TOUCHSCREEN */
+
+        .detail-schedule-btn,
+        .back-highlight-btn {
+            min-height: 48px;
+            min-width: 150px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 1100px) {
+
+            .detail-schedule-item {
+                grid-template-columns: 42px 125px minmax(0, 1fr);
+                padding: 11px 13px;
+            }
+
+            .detail-title {
+                font-size: 13px;
+            }
+
+        }
+
+        @media (max-width: 900px) {
+
+            .detail-schedule-list {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-schedule-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+        }
+    
         /* =========================
            RESPONSIVE
         ========================= */
@@ -1266,7 +1899,7 @@
         <div>
 
             <div class="brand-title">
-                Reservation Display
+                GITC Info
             </div>
 
             <div class="brand-subtitle">
@@ -1282,11 +1915,11 @@
         <div>
 
             <div class="building-title">
-                Gedung {{ $building->code }}
+                Building {{ $building->code }}
             </div>
 
             <div class="building-subtitle">
-                Classroom Reservation
+                Classroom 
             </div>
 
         </div>
@@ -1327,7 +1960,6 @@
 </header>
 
 
-
 {{-- =========================
      MAIN
 ========================= --}}
@@ -1358,7 +1990,7 @@
                     <span class="hero-status-dot"></span>
 
                     <span>
-                        SEDANG BERLANGSUNG
+                        In Progress
                     </span>
 
                 </div>
@@ -1381,7 +2013,7 @@
 
                             <div class="hero-label">
 
-                                RUANG
+                                ROOM
                                 {{ $reservation->room->name }}
 
                             </div>
@@ -1400,7 +2032,7 @@
                                 <div class="info-item">
 
                                     <div class="info-label">
-                                        Ruangan
+                                        Room
                                     </div>
 
                                     <div class="info-value">
@@ -1410,10 +2042,10 @@
                                 </div>
 
 
-                                <div class="info-item">
+                                {{-- <div class="info-item">
 
                                     <div class="info-label">
-                                        Instruktur
+                                        Instructor
                                     </div>
 
                                     <div class="info-value">
@@ -1422,13 +2054,13 @@
 
                                     </div>
 
-                                </div>
+                                </div> --}}
 
 
                                 <div class="info-item">
 
                                     <div class="info-label">
-                                        Jadwal
+                                        Schedule
                                     </div>
 
                                     <div class="info-value accent">
@@ -1513,7 +2145,7 @@
                     <span class="hero-status-dot"></span>
 
                     <span>
-                        KELAS YANG AKAN DATANG
+                        UPCOMING
                     </span>
 
                 </div>
@@ -1524,7 +2156,7 @@
 
                     <div class="hero-label">
 
-                        RUANG
+                        ROOM
                         {{ $nextReservation->room->name }}
 
                     </div>
@@ -1543,7 +2175,7 @@
                         <div class="info-item">
 
                             <div class="info-label">
-                                Ruangan
+                                Room
                             </div>
 
                             <div class="info-value">
@@ -1553,10 +2185,10 @@
                         </div>
 
 
-                        <div class="info-item">
+                        {{-- <div class="info-item">
 
                             <div class="info-label">
-                                Instruktur
+                                Instructor
                             </div>
 
                             <div class="info-value">
@@ -1565,7 +2197,7 @@
 
                             </div>
 
-                        </div>
+                        </div> --}}
 
 
                         <div class="info-item">
@@ -1597,26 +2229,25 @@
                 <div class="empty-state">
 
 
-                    <div class="hero-status">
+                    <div class="hero-status no-schedule">
 
                         <span class="hero-status-dot"></span>
 
                         <span>
-                            TIDAK ADA JADWAL
+                            No Schedule
                         </span>
 
                     </div>
 
 
                     <h1>
-                        Tidak ada kelas hari ini
+                        No classes scheduled today
                     </h1>
 
 
                     <p>
 
-                        Belum terdapat jadwal reservasi untuk
-                        Gedung {{ $building->code }}.
+                        No reservations are currently scheduled for Building {{ $building->code }}.
 
                     </p>
 
@@ -1629,6 +2260,15 @@
 
         </div>
 
+                <button
+                    type="button"
+                    class="detail-schedule-btn"
+                    id="detailScheduleBtn"
+                >
+                    DETAIL SCHEDULE
+                </button>
+            
+
 
     </section>
 
@@ -1638,17 +2278,44 @@
          JADWAL TERSEDIA
     ========================= --}}
 
-    <aside class="upcoming">
+   <aside class="schedule-panel">
+
+    {{-- =========================
+         TODAY'S SCHEDULE
+    ========================= --}}
+
+    <section class="today-schedule">
+
+        <div class="schedule-section-header">
+
+            <div class="schedule-header-content">
+
+                <div>
+                    <h2 class="upcoming-title">
+                        Today's Schedule
+                    </h2>
+
+                    <div class="upcoming-subtitle">
+                        Today's Room Bookings
+                    </div>
+                </div>
 
 
-        <div class="upcoming-header">
+                <div class="schedule-search">
 
-            <h2 class="upcoming-title">
-                Jadwal Tersedia
-            </h2>
+                <span class="schedule-search-icon">
+                    🔍
+                </span>
 
-            <div class="upcoming-subtitle">
-                Booking kelas hari ini
+                <input
+                    type="text"
+                    id="scheduleSearch"
+                    placeholder="Search..."
+                    autocomplete="off"
+                >
+
+            </div>
+
             </div>
 
         </div>
@@ -1659,18 +2326,14 @@
             id="scheduleList"
         >
 
-
             @if($reservations->count() > 0)
-
 
                 <div
                     class="schedule-track"
                     id="scheduleTrack"
                 >
 
-
                     @foreach($reservations as $reservation)
-
 
                         @php
 
@@ -1693,122 +2356,194 @@
                         @endphp
 
 
-                        <div
-                            class="
-                                schedule-item
-                                {{ $isCurrent ? 'current' : '' }}
-                                {{ $isNext && !$loop->first ? 'next' : '' }}
-                            "
-                        >
-
+                        <div class="schedule-item">
 
                             <div>
 
+                                <div>
+                                    <div class="schedule-room-label">
+                                        ROOM
+                                    </div>
 
-                                <div class="schedule-time">
-
-                                    {{ $reservationStart->format('H:i') }}
-
+                                    <div class="schedule-room">
+                                        {{ $reservation->room->name ?? '-' }}
+                                    </div>
                                 </div>
-
-
-                                <div class="schedule-time-end">
-
-                                    {{ $reservationEnd->format('H:i') }}
-
-                                </div>
-
-
-                                <div class="schedule-room">
-
-                                    {{ $reservation->room->name ?? '-' }}
-
-                                </div>
-
 
                             </div>
 
 
                             <div>
-
+                               
 
                                 <div class="schedule-name">
-
                                     {{ $reservation->course_name }}
-
                                 </div>
 
-
-                                <div class="schedule-instructor">
-
-                                    {{ $reservation->instructor ?: 'Instruktur belum tersedia' }}
-
+                                 <div class="schedule-time">
+                                    {{ $reservationStart->format('H:i') }}
+                                    -
+                                    {{ $reservationEnd->format('H:i') }}
                                 </div>
+
+                                {{-- <div class="schedule-instructor">
+                                    {{ $reservation->instructor ?: 'Instructor unavailable' }}
+                                </div> --}}
 
 
                                 @if($isCurrent)
 
-
-                                    <div class="schedule-status">
-
-                                        Sedang berlangsung
-
+                                    <div class="schedule-status in-progress">
+                                        In Progress
                                     </div>
-
 
                                 @elseif($isNext)
 
-
                                     <div class="schedule-status">
-
-                                        Akan datang
-
+                                        Upcoming
                                     </div>
-
 
                                 @endif
 
-
                             </div>
-
 
                         </div>
 
-
                     @endforeach
 
-
                 </div>
-
 
             @else
 
-
-                <div
-                    style="
-                        height:100%;
-                        display:flex;
-                        align-items:center;
-                        justify-content:center;
-                        padding:30px;
-                        text-align:center;
-                        color:#668096;
-                    "
-                >
-
-                    Tidak ada jadwal hari ini.
-
+                <div class="schedule-empty">
+                    There are no events scheduled for today
                 </div>
-
 
             @endif
 
+        </div>
+
+    </section>
+
+
+
+    {{-- =========================
+         UPCOMING SCHEDULE
+    ========================= --}}
+
+    <section class="tomorrow-schedule">
+
+        <div class="schedule-section-header tomorrow-header">
+
+            <h2 class="tomorrow-title">
+                Upcoming Schedule
+            </h2>
+
+            <div class="tomorrow-subtitle">
+                {{ now()->copy()->addDay()->translatedFormat('l, d F Y') }}
+            </div>
 
         </div>
 
 
-    </aside>
+        <div
+            class="tomorrow-list"
+            id="tomorrowList"
+        >
 
+            @if($tomorrowReservations->count() > 0)
+
+                @foreach($tomorrowReservations as $index => $reservation)
+
+                    @php
+
+                        $tomorrowStart =
+                            \Carbon\Carbon::parse($reservation->start_at);
+
+                        $tomorrowEnd =
+                            \Carbon\Carbon::parse($reservation->end_at);
+
+                    @endphp
+
+
+                    <div
+                        class="tomorrow-card {{ $index === 0 ? 'active' : '' }}"
+                        data-index="{{ $index }}"
+                    >
+
+                        <div class="tomorrow-time">
+
+                            <div class="tomorrow-time-main">
+                                {{ $tomorrowStart->format('H:i') }}
+                            </div>
+
+                            <div class="tomorrow-time-end">
+                                {{ $tomorrowEnd->format('H:i') }}
+                            </div>
+
+                        </div>
+
+
+                        <div class="tomorrow-content">
+
+                            <div class="tomorrow-name">
+                                {{ $reservation->course_name }}
+                            </div>
+
+                            <div class="tomorrow-room">
+                                {{ $reservation->room->name ?? '-' }}
+                            </div>
+
+                            {{-- <div class="tomorrow-instructor">
+                                {{ $reservation->instructor ?: 'Instructor unavailable' }}
+                            </div> --}}
+
+                        </div>
+
+                    </div>
+
+                @endforeach
+
+            @else
+
+                <div class="tomorrow-empty">
+                    No bookings scheduled for tomorrow
+                </div>
+
+            @endif
+
+        </div>
+
+    </section>
+
+</aside>
+
+        <!-- =========================
+            DETAIL SCHEDULE MODE
+        ========================= -->
+        <section class="detail-schedule-mode" id="detailMode">
+
+            <div class="detail-schedule-header">
+                <div>
+                    <div class="detail-label">CLASSROOM</div>
+                    <h2>Detail Schedule</h2>
+                    <p id="detailScheduleDate"></p>
+                </div>
+
+                <button
+                    type="button"
+                    class="back-highlight-btn"
+                    id="backHighlightBtn"
+                >
+                    BACK TO HIGHLIGHT
+                </button>
+            </div>
+
+            <div class="detail-schedule-list" id="detailScheduleList">
+                <!-- 20 jadwal akan dimasukkan melalui JavaScript -->
+            </div>
+
+        </section>
 
 </main>
 
@@ -1854,54 +2589,516 @@
 <script>
 
 
-    /* =========================
-       CLOCK
-    ========================= */
+   /* =========================
+   CLOCK
+========================= */
 
-    function updateClock() {
+function updateClock() {
 
-        const now = new Date();
+    const now = new Date();
 
-        const hours =
-            String(now.getHours()).padStart(2, '0');
+    const hours =
+        String(now.getHours()).padStart(2, '0');
 
-        const minutes =
-            String(now.getMinutes()).padStart(2, '0');
+    const minutes =
+        String(now.getMinutes()).padStart(2, '0');
 
-        const seconds =
-            String(now.getSeconds()).padStart(2, '0');
+    const seconds =
+        String(now.getSeconds()).padStart(2, '0');
 
-        const clock =
-            document.getElementById('clock');
+    const clock =
+        document.getElementById('clock');
 
-        if (clock) {
+    if (clock) {
 
-            clock.textContent =
-                `${hours}:${minutes}:${seconds} WIB`;
+        clock.textContent =
+            `${hours}:${minutes}:${seconds} WIB`;
+
+    }
+
+}
+
+updateClock();
+
+setInterval(updateClock, 1000);
+
+
+/* =========================
+   DISPLAY DATA
+========================= */
+
+/*
+ * Building code diambil dari URL.
+ *
+ * Contoh:
+ *
+ * /display2/C
+ *
+ * maka buildingCode = C
+ */
+
+const buildingCode =
+    window.location.pathname
+        .split('/')
+        .filter(Boolean)
+        .pop();
+
+
+/* =========================
+   CAROUSEL TIMER
+========================= */
+
+let heroTimer = null;
+let scheduleTimer = null;
+let tomorrowTimer = null;
+let scheduleManualScroll = false;
+let scheduleManualScrollTimer = null;
+let scheduleSearchKeyword = '';
+let lastDisplayReservations = [];
+
+/* =========================
+   HELPER
+========================= */
+
+/*
+ * Ubah format tanggal dari database lama
+ *
+ * 2026-09-11 08:00:00
+ *
+ * menjadi object Date.
+ */
+
+function parseDate(dateString) {
+
+    if (!dateString) {
+        return null;
+    }
+
+    return new Date(
+        dateString.replace(' ', 'T')
+    );
+
+}
+
+
+/*
+ * Format waktu menjadi:
+ *
+ * 08:00
+ */
+
+function formatTime(dateString) {
+
+    const date =
+        parseDate(dateString);
+
+    if (!date) {
+        return '-';
+    }
+
+    return date.toLocaleTimeString(
+        'en-GB',
+        {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+        }
+    );
+
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+function renderHero(reservations) {
+
+    const heroContent =
+        document.querySelector('.hero-content');
+
+    if (!heroContent) {
+        return;
+    }
+
+
+    const now =
+        new Date();
+
+
+    /*
+     * Booking yang sedang berlangsung
+     */
+
+    const currentReservations =
+        reservations.filter(reservation => {
+
+            const start =
+                parseDate(reservation.start);
+
+            const end =
+                parseDate(reservation.end);
+
+            return start <= now && end >= now;
+
+        });
+
+
+    /*
+     * Booking yang belum dimulai
+     */
+
+    const upcomingReservations =
+        reservations
+            .filter(reservation => {
+
+                const start =
+                    parseDate(reservation.start);
+
+                return start > now;
+
+            })
+            .sort((a, b) => {
+
+                return parseDate(a.start)
+                    - parseDate(b.start);
+
+            });
+
+
+    /*
+     * =========================
+     * SEDANG BERLANGSUNG
+     * =========================
+     */
+
+    if (currentReservations.length > 0) {
+
+        let slidesHTML = '';
+        
+        currentReservations.forEach(
+        reservation => {
+
+            const start =
+                parseDate(reservation.start);
+
+            const end =
+                parseDate(reservation.end);
+
+            slidesHTML += `
+
+               <div class="hero-slide">
+
+    <div class="hero-course">
+        ${escapeHtml(
+            reservation.nama_event
+        )}
+    </div>
+
+
+    <div class="hero-meta">
+
+        <div class="hero-meta-item">
+
+            <div class="hero-meta-label">
+                ROOM
+            </div>
+
+            <div class="hero-room">
+                ${escapeHtml(
+                    reservation.room_name
+                )}
+            </div>
+
+        </div>
+
+
+        <div class="hero-meta-item">
+
+            <div class="hero-meta-label">
+                TIME
+            </div>
+
+            <div class="hero-time">
+                ${formatTime(reservation.start)}
+                -
+                ${formatTime(reservation.end)}
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+            `;
 
         }
+    );
+
+
+        let paginationHTML = '';
+
+
+        if (currentReservations.length > 1) {
+
+            currentReservations.forEach(
+                (reservation, index) => {
+
+                    paginationHTML += `
+
+                        <span
+                            class="pagination-dot ${index === 0 ? 'active' : ''}"
+                            data-pagination="${index}"
+                        ></span>
+
+                    `;
+
+                }
+            );
+
+
+            paginationHTML += `
+
+                <span
+                    class="pagination-number"
+                    id="paginationNumber"
+                >
+
+                    01 /
+                    ${String(
+                        currentReservations.length
+                    ).padStart(2, '0')}
+
+                </span>
+
+            `;
+
+        }
+
+
+        heroContent.innerHTML = `
+
+            <div class="hero-status">
+
+                <span class="hero-status-dot"></span>
+
+                <span>
+                    In Progress
+                </span>
+
+            </div>
+
+
+            <div
+                class="hero-carousel"
+                id="heroCarousel"
+            >
+
+                ${slidesHTML}
+
+            </div>
+
+
+            ${
+                currentReservations.length > 1
+                    ? `
+                        <div class="hero-bottom">
+
+                            <div class="carousel-control">
+
+                                <div class="pagination">
+
+                                    ${paginationHTML}
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    `
+                    : ''
+            }
+
+        `;
+
+
+        initHeroCarousel();
+
+        return;
 
     }
 
 
-    updateClock();
+    /*
+     * =========================
+     * UPCOMING
+     * =========================
+     */
 
-    setInterval(updateClock, 1000);
+    if (upcomingReservations.length > 0) {
+
+        const next =
+            upcomingReservations[0];
 
 
+        heroContent.innerHTML = `
 
-    /* =========================
-       CURRENT CLASS CAROUSEL
-    ========================= */
+            <div class="hero-status upcoming">
+
+                <span class="hero-status-dot"></span>
+
+                <span>
+                    UPCOMING
+                </span>
+
+            </div>
+
+
+            <div class="hero-slide active">
+
+                <div class="hero-label">
+
+                    ROOM
+                    ${escapeHtml(
+                        next.room_name
+                    )}
+
+                </div>
+
+
+                <h1 class="hero-title">
+
+                    ${escapeHtml(
+                        next.nama_event
+                    )}
+
+                </h1>
+
+
+                <div class="hero-info">
+
+
+                    <div class="info-item">
+
+                        <div class="info-label">
+                            Room
+                        </div>
+
+                        <div class="info-value">
+
+                            ${escapeHtml(
+                                next.room_name
+                            )}
+
+                        </div>
+
+                    </div>
+
+
+                    {{-- Instructor tetap sengaja tidak digunakan --}}
+
+
+                    <div class="info-item">
+
+                        <div class="info-label">
+                            Start
+                        </div>
+
+                        <div class="info-value accent">
+
+                            ${formatTime(
+                                next.start
+                            )}
+
+                            WIB
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    /*
+     * =========================
+     * TIDAK ADA JADWAL
+     * =========================
+     */
+
+    heroContent.innerHTML = `
+
+        <div class="empty-state">
+
+            <div class="hero-status no-schedule">
+
+                <span class="hero-status-dot"></span>
+
+                <span>
+                    No Schedule
+                </span>
+
+            </div>
+
+
+            <h1>
+                No classes scheduled today
+            </h1>
+
+
+            <p>
+
+                No reservations are currently scheduled
+                for Building ${escapeHtml(buildingCode)}.
+
+            </p>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================
+   HERO CAROUSEL
+========================= */
+
+function initHeroCarousel() {
+
+    if (heroTimer) {
+
+        clearInterval(heroTimer);
+
+        heroTimer = null;
+
+    }
+
 
     const slides =
-        document.querySelectorAll('.hero-slide');
+        document.querySelectorAll(
+            '.hero-slide'
+        );
 
     const dots =
-        document.querySelectorAll('.pagination-dot');
+        document.querySelectorAll(
+            '.pagination-dot'
+        );
 
     const paginationNumber =
-        document.getElementById('paginationNumber');
+        document.getElementById(
+            'paginationNumber'
+        );
+
 
     let currentSlide = 0;
 
@@ -1912,172 +3109,511 @@
             return;
         }
 
-        if (index < 0) {
-            index = slides.length - 1;
-        }
 
         if (index >= slides.length) {
             index = 0;
         }
 
+
         currentSlide = index;
 
 
-        slides.forEach((slide, i) => {
+        slides.forEach(
+            (slide, i) => {
 
-            slide.classList.toggle(
-                'active',
-                i === currentSlide
-            );
+                slide.classList.toggle(
+                    'active',
+                    i === currentSlide
+                );
 
-        });
+            }
+        );
 
 
-        dots.forEach((dot, i) => {
+        dots.forEach(
+            (dot, i) => {
 
-            dot.classList.toggle(
-                'active',
-                i === currentSlide
-            );
+                dot.classList.toggle(
+                    'active',
+                    i === currentSlide
+                );
 
-        });
+            }
+        );
 
 
         if (paginationNumber) {
 
             paginationNumber.textContent =
-                `${String(currentSlide + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
+                `${String(
+                    currentSlide + 1
+                ).padStart(2, '0')} / ${String(
+                    slides.length
+                ).padStart(2, '0')}`;
 
         }
 
     }
 
+    showSlide(0);
 
     if (slides.length > 1) {
 
-        setInterval(() => {
+        heroTimer =
+            setInterval(() => {
 
-            showSlide(currentSlide + 1);
+                showSlide(
+                    currentSlide + 1
+                );
 
-        }, 7000);
+            }, 5000);
+
+    }
+
+}
+
+
+
+/* =========================
+   TODAY'S SCHEDULE
+========================= */
+
+
+function renderTodaySchedule(reservations) {
+
+    const scheduleList =
+        document.getElementById(
+            'scheduleList'
+        );
+
+    if (!scheduleList) {
+        return;
+    }
+
+
+    const now =
+        new Date();
+
+
+    let filteredReservations =
+        reservations || [];
+
+
+    /*
+     * FILTER SEARCH
+     */
+
+    if (scheduleSearchKeyword) {
+
+        filteredReservations =
+            filteredReservations.filter(
+                reservation => {
+
+                    const room =
+                        String(
+                            reservation.room_name || ''
+                        ).toLowerCase();
+
+                    const activity =
+                        String(
+                            reservation.nama_event || ''
+                        ).toLowerCase();
+
+
+                    return (
+                        room.includes(
+                            scheduleSearchKeyword
+                        )
+                        ||
+                        activity.includes(
+                            scheduleSearchKeyword
+                        )
+                    );
+
+                }
+            );
 
     }
 
 
+    /*
+     * TIDAK ADA HASIL
+     */
 
-    /* =========================
-       JADWAL TERSEDIA
-       4 CARD VISIBLE
-       AUTO LOOP
-    ========================= */
+    if (
+        !filteredReservations.length
+    ) {
+
+        scheduleList.innerHTML = `
+
+            <div class="schedule-empty">
+
+                ${
+                    scheduleSearchKeyword
+                        ? 'No matching reservations'
+                        : 'There are no events scheduled for today'
+                }
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    /*
+     * RENDER CARD
+     */
+
+    let html = `
+
+        <div
+            class="schedule-track"
+            id="scheduleTrack"
+        >
+
+    `;
+
+
+    filteredReservations.forEach(
+        reservation => {
+
+            const start =
+                parseDate(
+                    reservation.start
+                );
+
+            const end =
+                parseDate(
+                    reservation.end
+                );
+
+
+            const isCurrent =
+                start <= now &&
+                end >= now;
+
+
+            const isNext =
+                !isCurrent &&
+                start > now;
+
+
+            html += `
+
+                <div class="schedule-item">
+
+                    <!-- ROOM -->
+
+                    <div>
+
+                         <div class="schedule-room-label">
+                            ROOM
+                        </div>
+
+                        <div class="schedule-room">
+
+                            ${escapeHtml(
+                                reservation.room_name
+                            )}
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ACTIVITY -->
+
+                    <div>
+
+                        <div class="schedule-name">
+
+                            ${escapeHtml(
+                                reservation.nama_event
+                            )}
+
+                        </div>
+
+
+                        <!-- TIME -->
+
+                        <div class="schedule-time">
+
+                            ${formatTime(
+                                reservation.start
+                            )}
+
+                            -
+
+                            ${formatTime(
+                                reservation.end
+                            )}
+
+                        </div>
+
+
+                        <!-- STATUS -->
+
+                        ${
+                            isCurrent
+                                ? `
+                                    <div class="schedule-status in-progress">
+
+                                        In Progress
+
+                                    </div>
+                                `
+                                : ''
+                        }
+
+
+                        ${
+                            isNext
+                                ? `
+                                    <div class="schedule-status">
+
+                                        Upcoming
+
+                                    </div>
+                                `
+                                : ''
+                        }
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+
+    html += `
+
+        </div>
+
+    `;
+
+
+    scheduleList.innerHTML =
+        html;
+
+
+    /*
+     * INIT CAROUSEL
+     */
+
+    requestAnimationFrame(
+        () => {
+
+            if (
+                typeof initScheduleCarousel ===
+                'function'
+            ) {
+
+                initScheduleCarousel();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================
+   SCHEDULE SEARCH
+========================= */
+
+function initScheduleSearch() {
+
+    const searchInput =
+        document.getElementById(
+            'scheduleSearch'
+        );
+
+    if (!searchInput) {
+        return;
+    }
+
+
+    searchInput.addEventListener(
+        'input',
+        function () {
+
+            scheduleSearchKeyword =
+                this.value
+                    .trim()
+                    .toLowerCase();
+
+
+            renderTodaySchedule(
+                lastDisplayReservations
+            );
+
+        }
+    );
+
+}
+
+/* =========================
+   TODAY CAROUSEL
+========================= */
+
+function initScheduleCarousel() {
+
+    if (scheduleTimer) {
+
+        clearInterval(
+            scheduleTimer
+        );
+
+        scheduleTimer = null;
+
+    }
+
 
     const scheduleList =
-        document.getElementById('scheduleList');
+        document.getElementById(
+            'scheduleList'
+        );
 
     const scheduleTrack =
-        document.getElementById('scheduleTrack');
+        document.getElementById(
+            'scheduleTrack'
+        );
 
 
-    if (scheduleList && scheduleTrack) {
+    if (
+        !scheduleList ||
+        !scheduleTrack
+    ) {
+
+        return;
+
+    }
+
+    scheduleList.onwheel = function () {
+    scheduleManualScroll = true;
+
+    if (scheduleManualScrollTimer) {
+        clearTimeout(scheduleManualScrollTimer);
+    }
+
+    scheduleManualScrollTimer = setTimeout(() => {
+        scheduleManualScroll = false;
+    }, 3000);
+};
 
 
-        let scheduleItems =
-            Array.from(
-                scheduleTrack.querySelectorAll(
-                    '.schedule-item'
+    let scheduleItems =
+        Array.from(
+            scheduleTrack.querySelectorAll(
+                '.schedule-item'
+            )
+        );
+
+
+    const originalCount =
+        scheduleItems.length;
+
+
+    /*
+     * Jumlah card yang terlihat
+     */
+
+    const visibleItems = 4;
+
+
+    /*
+     * Jarak antar card
+     */
+
+    const itemGap = 10;
+
+
+    let itemHeight = 0;
+
+    let scheduleIndex = 0;
+
+
+    /*
+     * =========================
+     * HITUNG UKURAN CARD
+     * =========================
+     */
+
+    function calculateScheduleSize() {
+
+        if (
+            originalCount === 0
+        ) {
+
+            return;
+
+        }
+
+
+        const styles =
+            window.getComputedStyle(
+                scheduleList
+            );
+
+
+        const paddingTop =
+            parseFloat(
+                styles.paddingTop
+            ) || 0;
+
+
+        const paddingBottom =
+            parseFloat(
+                styles.paddingBottom
+            ) || 0;
+
+
+        const availableHeight =
+            scheduleList.clientHeight
+            -
+            paddingTop
+            -
+            paddingBottom;
+
+
+        const visible =
+            Math.min(
+                visibleItems,
+                originalCount
+            );
+
+
+        itemHeight =
+            (
+                availableHeight
+                -
+                (
+                    itemGap *
+                    (visible - 1)
+                )
+            )
+            /
+            visible;
+
+
+        itemHeight =
+            Math.max(
+                40,
+                Math.floor(
+                    itemHeight
                 )
             );
 
 
-        const originalCount =
-            scheduleItems.length;
-
-
-        const visibleItems =
-            4;
-
-
-        const itemGap =
-            10;
-
-
-        let itemHeight =
-            0;
-
-
-        let scheduleIndex =
-            0;
-
-
-        /*
-         * Hitung tinggi card.
-         *
-         * scheduleList.clientHeight sudah
-         * termasuk padding.
-         *
-         * Karena kita mempunyai padding-bottom,
-         * padding tersebut dikurangi terlebih dahulu.
-         */
-
-        function calculateScheduleSize() {
-
-            if (!scheduleItems.length) {
-                return;
-            }
-
-
-            const styles =
-                getComputedStyle(scheduleList);
-
-
-            const paddingBottom =
-                parseFloat(styles.paddingBottom) || 0;
-
-
-            const availableHeight =
-                scheduleList.clientHeight
-                -
-                paddingBottom;
-
-
-            if (originalCount > visibleItems) {
-
-                itemHeight =
-                    (
-                        availableHeight
-                        -
-                        (
-                            itemGap
-                            *
-                            (
-                                visibleItems - 1
-                            )
-                        )
-                    )
-                    /
-                    visibleItems;
-
-            } else {
-
-                itemHeight =
-                    (
-                        availableHeight
-                        -
-                        (
-                            itemGap
-                            *
-                            (
-                                originalCount - 1
-                            )
-                        )
-                    )
-                    /
-                    originalCount;
-
-            }
-
-
-            scheduleItems.forEach(item => {
+        scheduleItems.forEach(
+            item => {
 
                 item.style.height =
                     `${itemHeight}px`;
@@ -2088,246 +3624,681 @@
                 item.style.flex =
                     `0 0 ${itemHeight}px`;
 
-            });
-
-
-            scheduleTrack.style.gap =
-                `${itemGap}px`;
-
-
-            /*
-             * Setelah resize, kembalikan posisi
-             * agar tidak berada di tengah card.
-             */
-
-            if (originalCount <= visibleItems) {
-
-                scheduleIndex = 0;
-
-                scheduleTrack.style.transition =
-                    'none';
-
-                scheduleTrack.style.transform =
-                    'translateY(0)';
+                item.style.boxSizing =
+                    'border-box';
 
             }
+        );
 
-        }
 
+        scheduleTrack.style.gap =
+            `${itemGap}px`;
 
 
         /*
-         * Jika jadwal lebih dari 4,
-         * buat clone dari 4 data pertama.
-         *
-         * Contoh:
-         *
-         * 1 2 3 4 5
-         *
-         * menjadi:
-         *
-         * 1 2 3 4 5 1 2 3 4
-         *
-         * Ketika sampai clone 1,
-         * posisi akan di-reset secara halus
-         * kembali ke data asli nomor 1.
+         * Kalau jumlah data <= 4,
+         * tidak perlu carousel.
          */
 
-        if (originalCount > visibleItems) {
+        if (
+            originalCount <=
+            visibleItems
+        ) {
 
+            scheduleTrack.style.transition =
+                'none';
 
-            const cloneCount =
-                Math.min(
-                    visibleItems,
-                    originalCount
-                );
-
-
-            for (
-                let i = 0;
-                i < cloneCount;
-                i++
-            ) {
-
-                const clone =
-                    scheduleItems[i].cloneNode(true);
-
-                clone.classList.add(
-                    'schedule-clone'
-                );
-
-                scheduleTrack.appendChild(clone);
-
-            }
-
-
-            /*
-             * Ambil ulang semua item,
-             * termasuk clone.
-             */
-
-            scheduleItems =
-                Array.from(
-                    scheduleTrack.querySelectorAll(
-                        '.schedule-item'
-                    )
-                );
-
-
-            calculateScheduleSize();
-
-
-            /*
-             * Fungsi geser satu card.
-             */
-
-            function moveSchedule() {
-
-                scheduleIndex++;
-
-
-                const translateY =
-                    scheduleIndex
-                    *
-                    (
-                        itemHeight
-                        +
-                        itemGap
-                    );
-
-
-                scheduleTrack.style.transition =
-                    'transform 0.8s ease-in-out';
-
-
-                scheduleTrack.style.transform =
-                    `translateY(-${translateY}px)`;
-
-
-                /*
-                 * Ketika sudah sampai posisi
-                 * clone pertama.
-                 *
-                 * Misalnya data asli:
-                 *
-                 * 1 2 3 4 5
-                 *
-                 * clone:
-                 *
-                 * 1 2 3 4
-                 *
-                 * Setelah index = 5:
-                 *
-                 * 1 2 3 4
-                 *
-                 * yang terlihat adalah clone.
-                 *
-                 * Setelah animasi selesai,
-                 * kita reset ke data asli nomor 1.
-                 */
-
-                if (
-                    scheduleIndex >=
-                    originalCount
-                ) {
-
-                    setTimeout(() => {
-
-                        scheduleTrack.style.transition =
-                            'none';
-
-
-                        scheduleIndex =
-                            0;
-
-
-                        scheduleTrack.style.transform =
-                            'translateY(0)';
-
-
-                        /*
-                         * Paksa browser membaca posisi baru
-                         * sebelum transition diaktifkan lagi.
-                         */
-
-                        void scheduleTrack.offsetHeight;
-
-
-                        scheduleTrack.style.transition =
-                            'transform 0.8s ease-in-out';
-
-
-                    }, 850);
-
-                }
-
-            }
-
-
-            /*
-             * Auto loop setiap 10 detik.
-             */
-
-            setInterval(() => {
-
-                moveSchedule();
-
-            }, 7000);
-
-
-            /*
-             * Jika ukuran browser / TV berubah,
-             * hitung ulang tinggi card.
-             */
-
-            window.addEventListener(
-                'resize',
-                calculateScheduleSize
-            );
-
-
-        } else {
-
-
-            /*
-             * Jika jumlah data 4 atau kurang,
-             * tidak perlu carousel.
-             *
-             * Card dibagi rata memenuhi area.
-             */
-
-            calculateScheduleSize();
-
-
-            window.addEventListener(
-                'resize',
-                calculateScheduleSize
-            );
+            scheduleTrack.style.transform =
+                'translateY(0)';
 
         }
 
     }
 
 
-
-    /* =========================
-       REFRESH DATA
-    ========================= */
-
     /*
-     * Refresh halaman setiap 60 detik.
-     *
-     * Ini tetap berjalan terpisah dari
-     * clock dan carousel.
+     * Hitung ukuran pertama kali
      */
 
-    setInterval(() => {
-
-        window.location.reload();
-
-    }, 60000);
+    calculateScheduleSize();
 
 
+    /*
+     * Kalau hanya 4 atau kurang,
+     * tampilkan semua dan selesai.
+     */
+
+    if (
+        originalCount <=
+        visibleItems
+    ) {
+
+        return;
+
+    }
+
+
+    /*
+     * =========================
+     * CLONE 4 CARD PERTAMA
+     * =========================
+     *
+     * Digunakan agar carousel
+     * terlihat looping.
+     */
+
+    const cloneCount =
+        Math.min(
+            visibleItems,
+            originalCount
+        );
+
+
+    for (
+        let i = 0;
+        i < cloneCount;
+        i++
+    ) {
+
+        const clone =
+            scheduleItems[i]
+                .cloneNode(true);
+
+
+        clone.classList.add(
+            'schedule-clone'
+        );
+
+
+        scheduleTrack.appendChild(
+            clone
+        );
+
+    }
+
+
+    /*
+     * Ambil ulang semua card
+     */
+
+    scheduleItems =
+        Array.from(
+            scheduleTrack.querySelectorAll(
+                '.schedule-item'
+            )
+        );
+
+
+    /*
+     * Hitung ukuran setelah clone
+     */
+
+    calculateScheduleSize();
+
+
+    /*
+     * =========================
+     * GERAKKAN CAROUSEL
+     * =========================
+     */
+
+    function moveSchedule() {
+
+        if (scheduleManualScroll) {
+        return;
+    }
+
+        scheduleIndex++;
+
+
+        const translateY =
+            scheduleIndex *
+            (
+                itemHeight +
+                itemGap
+            );
+
+
+        scheduleTrack.style.transition =
+            'transform 0.8s ease-in-out';
+
+
+        scheduleTrack.style.transform =
+            `translateY(-${translateY}px)`;
+
+
+        /*
+         * Sampai akhir data asli.
+         *
+         * Setelah card terakhir,
+         * reset ke card pertama
+         * tanpa terlihat melompat.
+         */
+
+        if (
+            scheduleIndex >=
+            originalCount
+        ) {
+
+            setTimeout(() => {
+
+                scheduleTrack.style.transition =
+                    'none';
+
+
+                scheduleIndex = 0;
+
+
+                scheduleTrack.style.transform =
+                    'translateY(0)';
+
+
+                void scheduleTrack.offsetHeight;
+
+
+                scheduleTrack.style.transition =
+                    'transform 0.8s ease-in-out';
+
+
+            }, 850);
+
+        }
+
+    }
+
+
+    /*
+     * =========================
+     * MULAI CAROUSEL
+     * =========================
+     *
+     * 1 card bergerak setiap 7 detik.
+     */
+
+    scheduleTimer =
+        setInterval(
+            moveSchedule,
+            5000
+        );
+
+
+    /*
+     * Resize
+     */
+
+    window.addEventListener(
+        'resize',
+        calculateScheduleSize
+    );
+
+}
+
+/* =========================
+   TOMORROW SCHEDULE
+========================= */
+
+function renderTomorrowSchedule(
+    reservations
+) {
+
+    const tomorrowList =
+        document.getElementById(
+            'tomorrowList'
+        );
+
+
+    if (!tomorrowList) {
+        return;
+    }
+
+
+    if (!reservations.length) {
+
+        tomorrowList.innerHTML = `
+
+            <div class="tomorrow-empty">
+
+                No bookings scheduled for tomorrow
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    let html = '';
+
+
+    reservations.forEach(
+        (reservation, index) => {
+
+            html += `
+
+                <div
+                    class="tomorrow-card ${index === 0 ? 'active' : ''}"
+                    data-index="${index}"
+                >
+
+                    <div class="tomorrow-time">
+
+                        <div class="tomorrow-time-main">
+
+                            ${formatTime(
+                                reservation.start
+                            )}
+
+                        </div>
+
+                        <div class="tomorrow-time-end">
+
+                            ${formatTime(
+                                reservation.end
+                            )}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="tomorrow-content">
+
+                        <div class="tomorrow-name">
+
+                            ${escapeHtml(
+                                reservation.nama_event
+                            )}
+
+                        </div>
+
+                        <div class="tomorrow-room">
+
+                            ${escapeHtml(
+                                reservation.room_name
+                            )}
+
+                        </div>
+
+
+                        {{-- Instructor sengaja tetap tidak digunakan --}}
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+
+    tomorrowList.innerHTML =
+        html;
+
+
+    initTomorrowCarousel();
+
+}
+
+
+/* =========================
+   TOMORROW CAROUSEL
+========================= */
+
+function initTomorrowCarousel() {
+
+    if (tomorrowTimer) {
+
+        clearInterval(
+            tomorrowTimer
+        );
+
+        tomorrowTimer = null;
+
+    }
+
+
+    const cards =
+        Array.from(
+            document.querySelectorAll(
+                '.tomorrow-card'
+            )
+        );
+
+
+    if (cards.length <= 1) {
+        return;
+    }
+
+
+    let index = 0;
+
+
+    tomorrowTimer =
+        setInterval(() => {
+
+            cards[index]
+                .classList.remove(
+                    'active'
+                );
+
+
+            index =
+                (
+                    index + 1
+                )
+                %
+                cards.length;
+
+
+            cards[index]
+                .classList.add(
+                    'active'
+                );
+
+        }, 3000);
+
+}
+
+
+/* =========================
+   ESCAPE HTML
+========================= */
+
+/*
+ * Mencegah nama event dari database
+ * merusak HTML yang kita buat dengan JS.
+ */
+
+function escapeHtml(value) {
+
+    if (value === null ||
+        value === undefined) {
+
+        return '';
+
+    }
+
+
+    return String(value)
+        .replace(
+            /&/g,
+            '&amp;'
+        )
+        .replace(
+            /</g,
+            '&lt;'
+        )
+        .replace(
+            />/g,
+            '&gt;'
+        )
+        .replace(
+            /"/g,
+            '&quot;'
+        )
+        .replace(
+            /'/g,
+            '&#039;'
+        );
+
+}
+
+
+/* =========================
+   LOAD DATA FROM API
+========================= */
+let detailScheduleActive = false;
+
+function renderDetailSchedule(reservations) {
+
+    const detailList = document.getElementById('detailScheduleList');
+    const detailDate = document.getElementById('detailScheduleDate');
+
+    if (!detailList) return;
+
+    const now = new Date();
+
+    detailDate.textContent = now.toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric'
+    });
+
+    if (!reservations || reservations.length === 0) {
+        detailList.innerHTML = `
+            <div style="grid-column:1/-1; text-align:center; padding:50px;">
+                No Schedule Today
+            </div>
+        `;
+        return;
+    }
+
+    detailList.innerHTML = reservations.map((reservation, index) => {
+
+        const start = new Date(reservation.start.replace(' ', 'T'));
+        const end = new Date(reservation.end.replace(' ', 'T'));
+
+        let statusClass = '';
+        let statusText = '';
+
+        if (start <= now && end >= now) {
+            statusClass = 'detail-current';
+            statusText = 'IN PROGRESS';
+        } else if (start > now) {
+            statusText = 'UPCOMING';
+        } else {
+            statusClass = 'detail-passed';
+            statusText = 'COMPLETED';
+        }
+
+        const startTime = start.toLocaleTimeString('en-GB', {
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+
+        const endTime = end.toLocaleTimeString('en-GB', {
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+
+        return `
+            <div class="detail-schedule-item ${statusClass}">
+
+                <div class="detail-number">
+                    ${(index + 1).toString().padStart(2, '0')}
+                </div>
+
+                <div>
+
+                    <div class="detail-room">
+                        <span class="room-label">ROOM</span>
+                        <span class="room-name">${reservation.room_name || '-'}</span>
+                    </div>
+
+                </div>
+
+                <div>
+                    <div class="detail-time">
+                        ${startTime} - ${endTime}
+                    </div>
+
+                    <div class="detail-title">
+                        ${reservation.nama_event || '-'}
+                    </div>
+
+                    <div class="detail-status">
+                        ${statusText}
+                    </div>
+                </div>
+
+            </div>
+        `;
+
+    }).join('');
+}
+
+function showDetailSchedule() {
+
+    detailScheduleActive = true;
+
+    const highlightMode = document.querySelector('.hero');
+    const schedulePanel = document.querySelector('.schedule-panel');
+    const detailMode = document.getElementById('detailMode');
+
+    if (highlightMode) {
+        highlightMode.style.display = 'none';
+    }
+
+    if (schedulePanel) {
+        schedulePanel.style.display = 'none';
+    }
+
+    if (detailMode) {
+        detailMode.style.display = 'block';
+    }
+}
+
+
+function showHighlightMode() {
+
+    detailScheduleActive = false;
+
+    const highlightMode = document.querySelector('.hero');
+    const schedulePanel = document.querySelector('.schedule-panel');
+    const detailMode = document.getElementById('detailMode');
+
+    if (highlightMode) {
+        highlightMode.style.display = '';
+    }
+
+    if (schedulePanel) {
+        schedulePanel.style.display = '';
+    }
+
+    if (detailMode) {
+        detailMode.style.display = 'none';
+    }
+}
+document.addEventListener('click', function (event) {
+
+    if (event.target.closest('#detailScheduleBtn')) {
+        showDetailSchedule();
+    }
+
+    if (event.target.closest('#backHighlightBtn')) {
+        showHighlightMode();
+    }
+
+});
+
+
+async function loadDisplayData() {
+
+    try {
+
+        const response =
+            await fetch(
+                `/api/display2/${encodeURIComponent(buildingCode)}`,
+                {
+                    cache: 'no-store'
+                }
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                `API error: ${response.status}`
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+
+            /*
+            * Simpan data reservation terakhir
+            * untuk kebutuhan search.
+            */
+
+            lastDisplayReservations =
+                data.reservations || [];
+
+        /*
+         * Update tampilan
+         */
+
+        renderHero(
+            data.reservations || []
+        );
+
+        const heroContent =
+            document.querySelector('.hero-content');
+
+        if (heroContent) {
+            heroContent.classList.add('hero-ready');
+        }
+
+        renderTodaySchedule(
+            data.reservations || []
+        );
+
+
+        renderTomorrowSchedule(
+            data.tomorrowReservations || []
+        );
+
+        renderDetailSchedule(
+            data.reservations || []
+        );
+
+
+        console.log(
+            'Display data updated:',
+            new Date().toLocaleTimeString()
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            'Failed to update display:',
+            error
+        );
+
+    }
+
+}
+
+
+/* =========================
+   INITIAL LOAD
+========================= */
+initScheduleSearch();
+loadDisplayData();
+
+
+/* =========================
+   AUTO UPDATE
+========================= */
+
+/*
+ * Ambil data terbaru dari API
+ * setiap 5 detik.
+ *
+ * Tidak melakukan page reload.
+ */
+
+setInterval(
+    loadDisplayData,
+    90000
+);
 </script>
 
 
